@@ -1,0 +1,30 @@
+--monthly job posting table
+SELECT 
+    avg(salary_year_avg) as yearly_sal,
+    avg(salary_hour_avg) as hourly_sal,
+    EXTRACT (MONTH from job_posted_date) as month 
+FROM
+    job_postings_fact
+WHERE
+    EXTRACT(MONTH from job_posted_date) > 5 
+GROUP BY
+    EXTRACT(MONTH FROM job_posted_date);
+
+create table jan_jobs as
+SELECT *
+FROM job_postings_fact
+WHERE
+    EXTRACT(MONTH from job_posted_date) = 1;
+create table feb_jobs as
+SELECT *
+FROM job_postings_fact
+WHERE
+    EXTRACT(MONTH from job_posted_date) = 2;
+create table march_jobs as
+SELECT *
+FROM job_postings_fact
+WHERE
+    EXTRACT(MONTH from job_posted_date) = 3;
+
+
+    
