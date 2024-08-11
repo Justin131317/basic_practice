@@ -84,4 +84,4 @@ from remote_job_skills
 INNER join skills_dim as skills on skills.skill_id = remote_job_skills.skill_id
 ORDER BY
     skill_count desc
-limit 5
+limit 5;
